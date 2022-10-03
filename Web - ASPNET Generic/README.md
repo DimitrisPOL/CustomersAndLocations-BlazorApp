@@ -32,7 +32,7 @@ Extra (nice to have)
 ## Technical Requirements 
 
 - C#
-- ASP.NET Core 
+- .Net 6
 - Blazor Wasm
 
 ## Optional
