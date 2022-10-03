@@ -33,6 +33,7 @@ Extra (nice to have)
 
 - C#
 - ASP.NET Core 
+- Blazor Wasm
 
 ## Optional
 - Sql Server (e.g. with Entity Framework Core/Dapper/etc)
