@@ -23,6 +23,7 @@ Required:
 - A grid with all customers with server side paging
 - CRUD Operations on "Customer" model with new, edit and delete functionalities
 - Expose all CRUD Operations of the "Customer" model as an API 
+- Create a component that takes text as input and displays the results of Bing Autosuggest Map API(free version) https://learn.microsoft.com/en-us/bingmaps/rest-services/autosuggest
 
 Extra (nice to have)
 - Add authentication for the UI with the provided demo Identity Server 4 https://demo.identityserver.io/
