@@ -24,6 +24,20 @@ Required:
 - CRUD Operations on "Customer" model with new, edit and delete functionalities
 - Expose all CRUD Operations of the "Customer" model as an API 
 - Create a component that takes text as input and displays the results of Bing Autosuggest Map API(free version) https://learn.microsoft.com/en-us/bingmaps/rest-services/autosuggest
+-Below are the two classes Employee and Manager. Your task is to create a method in a new class that takes either Manager or an Employee as a parameter and prints its name. You are not allowed to use a base class or reflection in order to accomplish this
+
+```
+public class Employee
+{
+	public string Name { get; set; }
+}
+
+public class Manager
+{
+	public string Name { get; set; }
+}
+
+```
 
 Extra (nice to have)
 - Add authentication for the UI with the provided demo Identity Server 4 https://demo.identityserver.io/
