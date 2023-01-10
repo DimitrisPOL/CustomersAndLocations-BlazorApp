@@ -40,7 +40,7 @@ public class Manager
 ```
 
 Extra (nice to have)
-- Add authentication for the UI with the provided demo Identity Server 4 https://demo.identityserver.io/
+- Add authentication for the UI with the provided demo Identity Server 4 https://demo.identityserver.com/
 - Protect your API with authentication with the provided demo Identity Server above
 - Unit & Integration Tests
 
