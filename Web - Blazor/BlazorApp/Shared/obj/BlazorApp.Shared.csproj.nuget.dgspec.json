@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Work_Projects\\Github-interview-tests\\Interview-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj": {}
+    "C:\\Users\\dimip\\source\\repos\\InterView-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj": {}
   },
   "projects": {
-    "G:\\Work_Projects\\Github-interview-tests\\Interview-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj": {
+    "C:\\Users\\dimip\\source\\repos\\InterView-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Work_Projects\\Github-interview-tests\\Interview-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\dimip\\source\\repos\\InterView-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
         "projectName": "BlazorApp.Shared",
-        "projectPath": "G:\\Work_Projects\\Github-interview-tests\\Interview-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
-        "packagesPath": "C:\\Users\\geort\\.nuget\\packages\\",
-        "outputPath": "G:\\Work_Projects\\Github-interview-tests\\Interview-Tests\\Web - Blazor\\BlazorApp\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\dimip\\source\\repos\\InterView-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
+        "packagesPath": "C:\\Users\\dimip\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dimip\\source\\repos\\InterView-Tests\\Web - Blazor\\BlazorApp\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\geort\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dimip\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.dev-srv2.local/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +40,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

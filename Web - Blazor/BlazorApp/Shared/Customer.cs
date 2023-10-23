@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace BlazorApp.Shared
 {
+    [Serializable]
     public class Customer
     {
-        public Guid Id { get; set; }
-        public string CompanyName { get; set; }
+        public Customer()
+        {
+
+		}
+		public Guid Id { get; set; }
+		public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }

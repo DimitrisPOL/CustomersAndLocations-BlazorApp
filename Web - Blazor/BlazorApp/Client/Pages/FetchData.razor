@@ -1,6 +1,8 @@
 ﻿@page "/fetchdata"
 @using BlazorApp.Shared
 @inject HttpClient Http
+@using BlazorBootstrap
+@inject NavigationManager _navigationManager
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -8,40 +10,84 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<p> Employee name from Name Printer class is : @employeeName</p>
+
+<Grid TItem="Customer"
+Class="table table-hover table-bordered table-striped"
+      DataProvider="CustomersDataProvider"
+      AllowPaging="true"
+      Responsive="true">
+      
+    <GridColumn TItem="Customer" HeaderText="Delete" FilterTextboxWidth="80">
+        <input type="button"  value="X" @onclick="() => Delete(context.Id.ToString()) "/>
+    </GridColumn>    
+    <GridColumn TItem="Customer" HeaderText="Update" FilterTextboxWidth="80">
+        <input type="button"  value="X" @onclick="() => Update(context.Id.ToString()) "/>
+    </GridColumn>
+    <GridColumn TItem="Customer" HeaderText="Id" PropertyName="Id" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+        @context.ContactName
+    </GridColumn>    <GridColumn TItem="Customer" HeaderText="ContactName" PropertyName="ContactName"  HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+        @context.ContactName
+    </GridColumn>
+    <GridColumn TItem="Customer" HeaderText="Company Name" PropertyName="CompanyName"  FilterTextboxWidth="80">
+        @context.CompanyName
+    </GridColumn>
+    <GridColumn TItem="Customer" HeaderText="City" PropertyName="City"  FilterTextboxWidth="80">
+        @context.City
+    </GridColumn>
+    <GridColumn TItem="Customer" HeaderText="Address" PropertyName="Address"  FilterTextboxWidth="80">
+        @context.Address
+    </GridColumn>
+    <GridColumn TItem="Customer" HeaderText="Region" PropertyName="Region"  FilterTextboxWidth="80">
+        @context.Region
+    </GridColumn>
+    <GridColumn TItem="Customer" HeaderText="Phone" PropertyName="Phone" Phone" FilterTextboxWidth="80">
+        @context.Phone
+    </GridColumn>
+    
+
+</Grid>
 
 @code {
-    private WeatherForecast[]? forecasts;
 
-    protected override async Task OnInitializedAsync()
+    public Customer? Model { get; set; }
+
+    public string employeeName { get; set; }
+
+    protected override void OnInitialized(){
+        Model ??= new();
+
+        NamePrinter namePrinter = new NamePrinter(new Employee { Name = "Nikos" });
+
+        employeeName = namePrinter.PrintName();
+    }
+    
+    
+    //=> Model ??= new();
+
+    private async Task Delete(string indx)
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+
+        var result =   await Http.PostAsJsonAsync("Customers/Delete", indx);
+        _navigationManager.NavigateTo("fetchdata", forceLoad: true);
+    }
+    private async Task Update(string indx)
+    {
+        _navigationManager.NavigateTo($"updatedata/{indx}", forceLoad: true);
+    }
+    private async Task<GridDataProviderResult<Customer>> CustomersDataProvider(GridDataProviderRequest<Customer> request)
+    {
+        string sortString = "";
+        SortDirection sortDirection = SortDirection.None;
+
+        if (request.Sorting is not null && request.Sorting.Any())
+        {
+            // Note: Multi column sorting is not supported at this moment
+            sortString = request.Sorting.FirstOrDefault().SortString;
+            sortDirection = request.Sorting.FirstOrDefault().SortDirection;
+        }
+        var result = await Http.GetFromJsonAsync<CustomerResponseDto>($"Customers?pageSize={request.PageSize}&skip={request.PageNumber}");
+
+        return await Task.FromResult(new GridDataProviderResult<Customer> { Data = result.Payload , TotalCount = result.TotalCount });
     }
 }

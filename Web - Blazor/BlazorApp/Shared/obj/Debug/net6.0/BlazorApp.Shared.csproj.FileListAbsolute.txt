@@ -10,3 +10,15 @@ G:\Work_Projects\Github-interview-tests\Interview-Tests\Web - Blazor\BlazorApp\S
 G:\Work_Projects\Github-interview-tests\Interview-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\refint\BlazorApp.Shared.dll
 G:\Work_Projects\Github-interview-tests\Interview-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.pdb
 G:\Work_Projects\Github-interview-tests\Interview-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\ref\BlazorApp.Shared.dll
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\bin\Debug\net6.0\BlazorApp.Shared.deps.json
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\bin\Debug\net6.0\BlazorApp.Shared.dll
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\bin\Debug\net6.0\BlazorApp.Shared.pdb
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.csproj.AssemblyReference.cache
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.AssemblyInfoInputs.cache
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.AssemblyInfo.cs
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.csproj.CoreCompileInputs.cache
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.dll
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\refint\BlazorApp.Shared.dll
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\BlazorApp.Shared.pdb
+C:\Users\dimip\source\repos\InterView-Tests\Web - Blazor\BlazorApp\Shared\obj\Debug\net6.0\ref\BlazorApp.Shared.dll

@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "HMkf/+eQJ/3/qHZDJNN4YkiPTrJBXFwh1tbUoL+DX8XXHk1oPhYXSbJZjU99BcPGZePXO4dHCnzb9h09oPdSVA==",
+  "dgSpecHash": "2dVk+sSlY0zFf4X7yxkrgE3OiVRBAzUmye5rZ64tkJeHQwuOwfTL1AQEtXzoWYU+H89u7SOVQhI/3OODbHYBLQ==",
   "success": true,
-  "projectFilePath": "G:\\Work_Projects\\Github-interview-tests\\Interview-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "C:\\Users\\dimip\\source\\repos\\InterView-Tests\\Web - Blazor\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dimip\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.dev-srv2.local/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
 }

@@ -1,0 +1,82 @@
+﻿@page "/fetchlocations"
+@using BlazorApp.Shared
+@inject HttpClient Http
+@using BlazorBootstrap
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+   <EditForm Model="@Model" OnSubmit="@Submit">
+        <InputText Placeholder="Contact Name" @bind-Value="Model!.search" />
+        <button type="submit">Submit</button>
+    </EditForm>
+
+@if (results == null)
+{
+    <p><em>@DisplayMessage</em></p>
+}
+else
+{
+ 
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Locality</th>
+                <th>Address Line</th>
+                <th>Admin District</th>
+                <th>Admin District 2</th>
+                <th>Country Region</th>
+                <th>Country Region Iso 2</th>
+                <th>Formatted Address</th>
+                <th>Locality</th>
+                <th>PostalCode</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in results.resourceSets.FirstOrDefault().resources.FirstOrDefault().value)
+            {
+                <tr>
+                    <td>@result.address.locality</td>
+                    <td>@result.address.addressLine</td>
+                    <td>@result.address.adminDistrict</td>
+                    <td>@result.address.adminDistrict2</td>
+                    <td>@result.address.countryRegion</td>
+                    <td>@result.address.countryRegionIso2</td>
+                    <td>@result.address.formattedAddress</td>
+                    <td>@result.address.locality</td>
+                    <td>@result.address.postalCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    public class BingRequest{
+        public string search { get; set; }
+
+    }
+    public string DisplayMessage = "";
+    public BingRequest? Model;
+    protected override void OnInitialized() => Model ??= new();
+    public BingLocationsResult results;
+
+    private async Task Submit()
+    {
+
+        try{
+            DisplayMessage = "Loading...";
+            results = await Http.GetFromJsonAsync<BingLocationsResult>($"BingsAddress?query={Model.search}");
+
+        }catch(Exception ex){
+
+        }
+
+
+    }
+
+}

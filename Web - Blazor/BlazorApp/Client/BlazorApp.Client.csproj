@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazor.Bootstrap" Version="1.10.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.9" PrivateAssets="all" />
+    <PackageReference Include="Syncfusion.Blazor.Core" Version="23.1.41" />
+    <PackageReference Include="Syncfusion.Blazor.Grid" Version="23.1.41" />
+    <PackageReference Include="Syncfusion.Blazor.Themes" Version="23.1.41" />
   </ItemGroup>
 
   <ItemGroup>

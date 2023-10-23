@@ -1,0 +1,43 @@
+﻿@page "/updatedata/{guid}"
+@using BlazorApp.Shared
+@inject HttpClient Http
+@inject NavigationManager _navigationManager
+
+<EditForm Model="@Model" OnSubmit="@Submit">
+    <InputText Placeholder="Contact Name"  @bind-Value="Model!.ContactName" />
+    <InputText Placeholder="Company Name"  @bind-Value="Model!.CompanyName" />
+    <InputText Placeholder="PostalCode" @bind-Value="Model!.PostalCode" />
+    <InputText Placeholder="Address" @bind-Value="Model!.Address" />
+    <InputText Placeholder="City" @bind-Value="Model!.City" />
+    <InputText Placeholder="Region" @bind-Value="Model!.Region" />
+    <InputText Placeholder="Phone" @bind-Value="Model!.Phone" />
+    <InputText Placeholder="Country"  @bind-Value="Model!.Country" />
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    [Parameter]
+    public string guid { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        //the param will be set now
+        var test = guid;
+    }
+
+    public Customer? Model { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model = await Http.GetFromJsonAsync<Customer>($"Customers/GetById?id={guid}");
+    }
+
+    private async Task Submit()
+    {
+        await Http.PostAsJsonAsync<Customer>("Customers/Update", Model);
+
+        _navigationManager.NavigateTo($"fetchdata", forceLoad: true);
+    }
+
+
+}
