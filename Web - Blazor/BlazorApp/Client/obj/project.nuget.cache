@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DNUWVAQ0V65uHJudAzmZt5vA9hGkA79bKkk+6EICP4cJVFMfwZx/vrn+6y8lt7OoEV8F8Z+a3mSbT72Mr0BWPA==",
+  "dgSpecHash": "e8xKKE87EX4atMmOTds1QaS7zSYs9Xb5GTV690RUmthejtRK/rruyDIVv7Khxu6G2eI/tF92TwhucG+kJz6Zmw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dimip\\source\\repos\\InterView-Tests\\Web - Blazor\\BlazorApp\\Client\\BlazorApp.Client.csproj",
   "expectedPackageFiles": [
@@ -54,12 +54,5 @@
     "C:\\Users\\dimip\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
     "C:\\Users\\dimip\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.11\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.dev-srv2.local/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    }
-  ]
+  "logs": []
 }

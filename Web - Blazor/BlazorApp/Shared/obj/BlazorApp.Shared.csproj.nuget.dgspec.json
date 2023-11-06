@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.dev-srv2.local/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

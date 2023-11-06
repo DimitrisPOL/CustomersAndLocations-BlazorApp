@@ -22,5 +22,17 @@ namespace BlazorApp.Shared
         public string PostalCode { get; set; }
         public string Country { get; set; }
         public string Phone { get; set; }
+
+        public void Update(Customer updated)
+        {
+            this.CompanyName = updated.CompanyName;
+            this.ContactName = updated.ContactName;
+            this.Address = updated.Address;
+            this.City = updated.City;
+            this.Region = updated.Region;
+            this.PostalCode = updated.PostalCode;
+            this.Country = updated.Country;
+            this.Phone = updated.Phone;
+        }
     }
 }

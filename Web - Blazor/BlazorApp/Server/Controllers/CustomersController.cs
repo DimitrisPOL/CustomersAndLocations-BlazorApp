@@ -1,7 +1,10 @@
-using BlazorApp.Server.Cache;
+using BlazorApp.Infrastructure.Context;
+using BlazorApp.Infrastructure.Interfaces;
 using BlazorApp.Shared;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using SQLitePCL;
 using static System.Net.WebRequestMethods;
 
 namespace BlazorApp.Server.Controllers
@@ -12,50 +15,45 @@ namespace BlazorApp.Server.Controllers
     {
 
         private readonly ILogger<CustomersController> _logger;
+        private readonly ICustomerRepository _repository;
 
-        public CustomersController(ILogger<CustomersController> logger)
+        public CustomersController(ICustomerRepository repository, ILogger<CustomersController> logger)
         {
             _logger = logger;
+			_repository = repository;
         }
 
         [HttpGet]
-        public CustomerResponseDto Get(int pageSize , int skip)
+        public async Task<CustomerResponseDto> Get(int pageSize , int skip)
         {
+			var customers = await _repository.GetCustomersRange(pageSize, skip);
 
-			var result =  new CustomerResponseDto { Payload = CustomersCache.Customers.Skip((1 - skip) * pageSize).Take(pageSize).ToList(), TotalCount = CustomersCache.Customers.Count};
+			var result =  new CustomerResponseDto { Payload = customers, TotalCount = customers.Count()};
             return result;
-
 		}
         [HttpGet]
 		[Route("GetById")]
-		public Customer GetById(string id)
+		public async Task<Customer> GetById(string id)
         {
-			var result = CustomersCache.Customers?.Where(c => c.Id.ToString() == id).FirstOrDefault();
-			return result;
-
+			return await _repository.GetCustomer(id);
 		}
 		[HttpPost]
 		[Route("Add")]
 		public async Task Add(Customer customer)
 		{
-
-				CustomersCache.Customers.Add(customer);
-
+			await _repository.AddCustomer(customer);
 		}
 		[HttpPost]
 		[Route("Update")]
-		public void Update(Customer customer)
+		public async Task Update(Customer customer)
 		{
-            var oldCust = CustomersCache.Customers.Where(c => c.Id.Equals(customer.Id)).FirstOrDefault();
-            CustomersCache.Customers.Remove(oldCust);
-			CustomersCache.Customers.Add(customer);
+			await _repository.UpdateCustomer(customer);
 		}
 		[HttpPost]
 		[Route("Delete")]
-		public void Delete([FromBody] string indx)
+		public async Task Delete([FromBody] string indx)
 		{
-            var oldCust = CustomersCache.Customers.Find(c => c.Id.ToString() == indx);
-            CustomersCache.Customers.Remove(oldCust);
+			await _repository.DeleteCustomer(indx);
 		}
 	}
 }
