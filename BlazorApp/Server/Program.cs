@@ -22,10 +22,13 @@ builder.Services.Configure<ApplicationConfiguration>(builder.Configuration);
 builder.Services.AddDbContext<CustomerContext>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
+
+var _bingoConfiguration = builder.Configuration.GetSection(nameof(BingoMapSettings)).Get<BingoMapSettings>();
+
 builder.Services.AddHttpClient<IBingLocationsService, BingLocationsService>(
 	client =>
 	{
-		client.BaseAddress = new Uri("http://dev.virtualearth.net/");
+		client.BaseAddress = new Uri(_bingoConfiguration.BingoLocationsApiUrl);
 	}).AddPolicyHandler(PolicyHandler.GetRetryPolicy());
 
 var app = builder.Build();
