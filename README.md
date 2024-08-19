@@ -6,28 +6,46 @@ Blazor customer app is a simple client app and a .NET core
 -  Add and View Customers
 -  Search for locations result using Bing Map Api
 
-## Images
-
-
-
-
-
 ## Prerequisites
 
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - Visual Studio 2022 or later with .NET 6 installed.
 - An SQLite database
+- [Bingo Locations Api key](https://learn.microsoft.com/en-us/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)
+  
+## Getting Started
 
-# Get started
+  1.  Clone the Repository
 
-In this session, you'll setup your machine for Blazor development and build your first Blazor app.
+  ```bash
+  git clone https://github.com/DimitrisPOL/CustomersAndLocations-BlazorApp.git
+  cd CustomersAndLocations-BlazorApp
+  
+  ```
+2. In 'appsettings.Development.json' fill in SQLite coneection string, Bingo Locations Api key, and prefered starting point coordinates
 
-## Setup
+  ```bash
+    "ConnectionStrings": {
+      "SQLiteDefaultConnection": "customer.db"
+    },
+  "BingoMapSettings": {
 
-To get started with Blazor, follow the getting instructions on [blazor.net](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/intro).
+    "BingoLocationsApiUrl": "http://dev.virtualearth.net/",
+    "BingoLocationsApiCallTemplate": "REST/v1/Autosuggest?query={0}&userLocation={1},{2}&key={3}",
+    "BingoLocationsApiKey": "**************************************************",
+    "BingoMapLat": "48.604311",
+    "BingoMapLng": "-122.981998"
+  }
+  
+  ```
+## Images
 
-## Build your first app
+</br>
 
-Once you have your first Blazor app running, try [building a Blazor todo list app](https://aka.ms/blazor/todo).
+![Screenshot 2024-08-19 at 20-22-00 Search Locations-min](https://github.com/user-attachments/assets/f7da084f-0e41-4f0e-93a9-4a4a081062c5)
+</br>
 
-Next up - [Compone
+![Screenshot 2024-08-19 at 20-22-58 BlazorApp-min](https://github.com/user-attachments/assets/375c695b-9f28-4085-b463-f7c37a4d66f0)
+</br>
+![Screenshot 2024-08-19 at 20-23-14 Customers-min](https://github.com/user-attachments/assets/f122b4df-934e-4562-8a4d-2935ab0752ba)
+
